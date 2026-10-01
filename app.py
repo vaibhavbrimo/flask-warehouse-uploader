@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# LOCAL DEDICATED STORAGE
+# WAREHOUSE LOCAL STORAGE / VOLUME
 UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', '/app/uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -21,7 +21,7 @@ AIRFLOW_PASS = os.getenv('AIRFLOW_PASSWORD', 'airflow')
 
 @app.route('/')
 def index():
-    return render_template('index.html', bucket_name="Local Shared Volume")
+    return render_template('index.html')
 
 
 @app.route('/upload', methods=['POST'])
@@ -43,7 +43,7 @@ def upload_file():
         
         file_path = os.path.join(UPLOAD_FOLDER, new_filename)
 
-        # 1. Save locally to shared volume
+        # 1. Save to warehouse shared volume
         file.save(file_path)
 
         # 2. [OPTIONAL] Airflow DAG trigger via REST API
@@ -63,7 +63,7 @@ def upload_file():
 
         return jsonify({
             'success': True,
-            'message': f'File successfully saved locally to shared volume as: {new_filename}',
+            'message': f'File successfully uploaded to warehouse storage as: {new_filename}',
             'filename': new_filename
         })
 
