@@ -63,8 +63,11 @@
                     </div>
                     <div class="flex items-center space-x-2">
                         <button id="cancel-btn" class="px-3 py-1.5 text-xs text-slate-600 hover:text-rose-600">Remove</button>
-                        <button id="upload-btn" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow">
-                            Upload to Warehouse
+                        <button id="upload-btn" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow flex items-center">
+                            <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                            <span>Upload to Warehouse</span>
                         </button>
                     </div>
                 </div>
@@ -85,17 +88,11 @@
 
         </div>
 
-        <!-- Redash Banner
-        <div class="mt-8 bg-slate-900 text-white rounded-2xl p-6 flex items-center justify-between">
-            <div>
-                <h4 class="text-sm font-bold">View Reconciliation Dashboard</h4>
-                <p class="text-xs text-slate-400 mt-0.5">Check discrepancies and C2P conversions on Redash.</p>
-            </div>
-            <a href="http://localhost:5001" target="_blank" class="px-4 py-2 bg-white text-slate-900 rounded-xl text-xs font-semibold hover:bg-slate-100">
-                Open Redash →
-            </a>
-        </div> -->
     </main>
+
+    <footer class="py-6 text-center text-xs text-slate-400 border-t border-slate-200 mt-auto">
+        OrderRecon Hub &bull; Warehouse Ingestion Portal (Gokwik)
+    </footer>
 
     <script>
         const dropZone = document.getElementById('drop-zone');
